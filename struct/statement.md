@@ -16,33 +16,33 @@ go语言中包（package）与java中的包（package）非常类似，都是组
 
 如下面的函数是无法执行的
 
-`
-package test
 
-import (
-	"fmt"
-)
+	package test
 
-func main(){
-	values := []int{4, 93, 84, 85, 80, 37, 81, 93, 27,12}
-	fmt.Println(values)
-}
-`
+	import (
+		"fmt"
+	)
+
+	func main(){
+		values := []int{4, 93, 84, 85, 80, 37, 81, 93, 27,12}
+		fmt.Println(values)
+	}
 
 
 源码文件声明的代码包的名称可以与其所在的目录的名称不同（最好相同）。在针对代码包进行构建时，生成的结果文件的主名称与其父目录的名称一致。对于命令源码文件而言，构建生成的可执行文件的主名称会与其父目录的名称相同。
 
-C：\gingernet\go_work_space\stady\pkg\test.go
+	C：\gingernet\go_work_space\stady\pkg\test.go
 
-`
-package pkg
 
-import "fmt"
+	package pkg
 
-func Hello(name string) {
-	fmt.Printf("Hello, %s!\n", name)
-}
-`
+	import "fmt"
+
+	func Hello(name string) {
+		fmt.Printf("Hello, %s!\n", name)
+	}
+
+
 Go 源码文件所在的目录相对于 src 目录的相对路径就是它的代码包导入路径，而实际使用其程序实体时给定的限定符要与它声明所属的代码包名称对应；
 
 提示：若是 GOPATH 项目第三方包建议放在项目下面的 vendor 目录。若是 go mod 项目，go mod 会去组织包结构。
