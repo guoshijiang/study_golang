@@ -141,11 +141,13 @@ type Car interface {
 func (f foo) method() {
     ...
 }
-
+`
+`
 func (p *foo) method() {
     ...
 }
 `
+
 对于Receiver命名应该统一， 要么都使用值， 要么都用指针。
 
 #### 3.8 注释
