@@ -90,13 +90,15 @@ Go语言是静态类型语言，因此变量（variable）是有明确类型的�
 只能用在函数内部。
 
 和 var 形式声明语句一样，简短变量声明语句也可以用来声明和初始化一组变量：
-i, j := 0, 1
+
+	i, j := 0, 1
 
 下面通过一段代码来演示简短格式变量声明的基本样式。
-func main() {
-   x:=100
-   a,s:=1, "abc"
-}
+
+	func main() {
+	   x:=100
+	   a,s:=1, "abc"
+	}
 
 因为简洁和灵活的特点，简短变量声明被广泛用于大部分的局部变量的声明和初始化。var 形式的声明语句往往是用于需要显式指定变量类型地方，或者因为变量稍后会被重新赋值而初始值无关紧要的地方。
 
@@ -105,43 +107,43 @@ func main() {
 
 常量的声明使用关键字 const, 声明的时候可以带类型，也可以不带类型；常用格式如下：
 
-`const 名字 类型 `
+	const 名字 类型 
 
 如：
 
 声明一个常量
 
-`const MAX = 4096`
+	const MAX = 4096
 
 声明一个指定类型的常量
 
-`const LIMIT int16 = 1024
-const LIMIT2 = int16(1024)`
+	const LIMIT int16 = 1024
+	const LIMIT2 = int16(1024)
 
 声明一组常量
 
-`const (
-    start  = 0x1 
-    resume = 0x2 
-    stop   = 0x4 
-)
-`
+	const (
+	    start  = 0x1 
+	    resume = 0x2 
+	    stop   = 0x4 
+	)
+
 
 声明一组指定类型的常量
 
-`const (
-    start  int8 = 0x1 
-    resume int8 = 0x2 
-    stop   int8 = 0x4 
-)`
+	const (
+	    start  int8 = 0x1 
+	    resume int8 = 0x2 
+	    stop   int8 = 0x4 
+	)
 
 用iota简化上面的写法
 
-`const (
-    start  int8 = 1 << iota
-    resume
-    stop
-)`
+	const (
+	    start  int8 = 1 << iota
+	    resume
+	    stop
+	)
 
 
 ### 4.类型声明
@@ -151,31 +153,31 @@ const LIMIT2 = int16(1024)`
 类型别名声明
 很简单：在类型别名和类型之间使用等号（=）
 
-`type (
-	nodeList = []*Node  
-	Polar    = polar    
-)`
+	type (
+		nodeList = []*Node  
+		Polar    = polar    
+	)
 
 新类型定义
 
 创建一个新的类型，这个类型和给定的已存在的（旧）类型 有相同的底层类型和操作，并用一个新的标识符来表示这个新类型。这样的新类型也叫做自定义类型
 
-`
-type (
-	Point struct{ x, y float64 }  
-	polar Point                  
-)
 
-type TreeNode struct {
-	left, right *TreeNode
-	value *Comparable
-}
+	type (
+		Point struct{ x, y float64 }  
+		polar Point                  
+	)
 
-type Block interface {
-	BlockSize() int
-	Encrypt(src, dst []byte)
-	Decrypt(src, dst []byte)
-}`
+	type TreeNode struct {
+		left, right *TreeNode
+		value *Comparable
+	}
+
+	type Block interface {
+		BlockSize() int
+		Encrypt(src, dst []byte)
+		Decrypt(src, dst []byte)
+	}
 
 
 ### 5.函数对象声明
@@ -191,16 +193,16 @@ type Block interface {
 
 形式如下：
 
-`func 函数名(形式参数列表)(返回值列表){
-        函数体
-}`
+	func 函数名(形式参数列表)(返回值列表){
+		函数体
+	}
 
 例如：
 
-`func hypot(x, y float64) float64 {
-    return math.Sqrt(x*x + y*y)
-}
-fmt.Println(hypot(3,4)) // "5"`
+	func hypot(x, y float64) float64 {
+	    return math.Sqrt(x*x + y*y)
+	}
+	fmt.Println(hypot(3,4)) // "5"
 
 这里我们对包，变量，常量，类型，函数等都是简单的介绍，说明他们的声明方式，关于他们在后面的课程中将会有详细的介绍
    
